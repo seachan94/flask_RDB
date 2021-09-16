@@ -1,7 +1,6 @@
 
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
-from flask_sqlalchemy import SQLAlchemy
 from app import db
 import bcrypt
 
@@ -18,10 +17,9 @@ class User(db.Model):
         self.pw = self.set_password(password)
 
     def __repr__(self):
-        return f"<User('{self.email}', '{self.name}', '{self.pw}')>"
+        return f"<User('{self.email_id}', '{self.user_name}', '{self.haing_pw}')>"
  
     def set_password(self, password):
-        
         return  bcrypt.hashpw(password.encode('utf-8'),
                                       bcrypt.gensalt())
         

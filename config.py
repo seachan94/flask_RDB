@@ -1,9 +1,17 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 db = {
-'user':'sechan94',
-'password':'dnwjd94',
-'host':'localhost',
-'port':'3306',
-'database':'flask_test'
+'user':os.getenv('db_user'),
+'password':os.getenv('db_password'),
+'host':os.getenv('db_host'),
+'port':os.getenv('db_port'),
+'database':os.getenv('database')
 }
 
 DB_URL = f"mysql+mysqlconnector://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}?charset=utf8" 
+
+
+
+
